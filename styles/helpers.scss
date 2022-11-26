@@ -1,0 +1,80 @@
+//------------- Variables --------------//
+
+$mainColor: #8284ea;
+$textColor: #6d6b80;
+$background: #e9edf6;
+$tableBackground: #f0f3f9;
+
+//-------------- Mixins ---------------//
+
+@mixin text($f, $lh) {
+  font-size: $f;
+  line-height: $lh;
+}
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 769px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1025px) {
+    @content;
+  }
+}
+
+//-------------- Extends ---------------//
+
+%Container {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+%TitleText {
+  @include text(0.875rem, 1.25rem);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $textColor;
+}
+
+%UsualText {
+  @include text(1rem, 1.5rem);
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: $textColor;
+}
+
+%ScrollBar {
+  &::-webkit-scrollbar-track {
+    background-color: rgb(212, 212, 212);
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(198, 198, 198);
+    border-radius: 4px;
+
+    &:hover {
+      background-color: rgb(158, 158, 158);
+    }
+  }
+}

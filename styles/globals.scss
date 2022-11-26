@@ -1,0 +1,28 @@
+@import "/styles/helpers.scss";
+
+body {
+  @extend %ScrollBar;
+}
+
+html,
+body,
+ul,
+p,
+h1,
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}

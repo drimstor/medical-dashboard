@@ -1,0 +1,35 @@
+@import "/styles/helpers.scss";
+
+.chart {
+  @extend %Container;
+
+  &Title {
+    @extend %TitleText;
+    margin-bottom: 10px;
+  }
+
+  &Box {
+    display: flex;
+    gap: 26px;
+    padding: 19px 0;
+
+    @include tablet {
+      flex-direction: column;
+      padding-bottom: 0;
+    }
+  }
+
+  &Graph {
+    flex: 1 1;
+  }
+
+  &Table {
+    flex: 1 1;
+    margin-top: -10px;
+    @extend %ScrollBar;
+
+    @include tablet {
+      overflow-y: hidden;
+    }
+  }
+}

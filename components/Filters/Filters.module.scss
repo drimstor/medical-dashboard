@@ -1,0 +1,42 @@
+@import "/styles/helpers.scss";
+
+.filters {
+  @extend %Container;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &Title {
+    @extend %TitleText;
+    margin-bottom: 1rem;
+  }
+
+  &Box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+  }
+
+  &Buttons {
+    display: flex;
+    padding-bottom: 15px;
+  }
+
+  &Button {
+    @include text(0.875rem, 1.25rem);
+    color: $textColor;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 125px;
+    margin-right: calc(50% - 125px);
+    transition: 0.3s;
+
+    &:hover {
+      color: $mainColor;
+    }
+
+    &:active {
+      color: #a3a5ff;
+    }
+  }
+}

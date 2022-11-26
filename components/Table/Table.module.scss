@@ -1,0 +1,134 @@
+@import "/styles/helpers.scss";
+
+.table {
+  @extend %Container;
+  @extend %ScrollBar;
+  background: $tableBackground;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include tablet {
+    overflow-y: scroll;
+  }
+
+  &Title {
+    @extend %TitleText;
+    text-align: left;
+  }
+}
+
+.tableGridContainer {
+  width: 100%;
+  border-spacing: 0 8px;
+
+  th {
+    text-align: left;
+    @include text(14px, 24px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: $textColor;
+    padding: 0 1rem;
+  }
+
+  thead tr {
+    height: 32px;
+  }
+
+  tr {
+    height: 52px;
+    transition: 0.3s;
+
+    &.active {
+      background: $mainColor;
+
+      svg {
+        fill: white;
+      }
+
+      td {
+        color: white;
+      }
+    }
+
+    &:not(thead tr) {
+      background: white;
+    }
+
+    &:not(thead tr):hover {
+      background: $mainColor;
+
+      svg {
+        fill: white;
+      }
+
+      td {
+        color: white;
+      }
+    }
+  }
+
+  td {
+    padding: 1rem;
+    @include text(14px, 120%);
+    letter-spacing: -0.02em;
+    color: $textColor;
+    transition: 0.3s;
+    white-space: nowrap;
+  }
+}
+
+.circle {
+  @include size(12px, 12px);
+  border-radius: 50%;
+  margin-bottom: -2px;
+  margin-right: 8px;
+  display: none;
+
+  &.red {
+    background: #ed5b88;
+    display: inline-block;
+  }
+
+  &.green {
+    background: #b5f5b4;
+    display: inline-block;
+  }
+}
+
+.info {
+  display: inline-block;
+  margin-left: 8px;
+  @include size(15px, 15px);
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+
+  &:hover {
+    .infoContent {
+      visibility: visible;
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+
+  svg {
+    fill: $textColor;
+    transition: 0.3s;
+  }
+
+  &Content {
+    position: absolute;
+    padding: 5px 8px;
+    right: -85px;
+    top: -4px;
+    font-size: 12px;
+    border-radius: 4px;
+    background: rgb(230, 230, 230);
+    color: $textColor !important;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+    filter: blur(5px);
+  }
+}

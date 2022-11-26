@@ -1,0 +1,71 @@
+@import "/styles/helpers.scss";
+
+.header {
+  @include size(100%, 63px);
+  @include text(12px, 120%);
+  color: $textColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+
+  &Nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &Profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &Avatar {
+    max-width: 31px;
+    max-height: 31px;
+  }
+
+  &BurgerButton {
+    display: none;
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background: $textColor;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:active {
+      transform: scale(0.85);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      top: -7px;
+      background: $textColor;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      bottom: -7px;
+      background: $textColor;
+    }
+
+    @include laptop {
+      display: block;
+    }
+  }
+
+  @include laptop {
+    padding: 0 1.5rem;
+
+    li {
+      display: none;
+    }
+  }
+}
